@@ -50,8 +50,13 @@ sample_transactions.csv
 
 ```bash
 cp .env.example .env
+python -c "import secrets; print(secrets.token_urlsafe(48))"
 docker-compose up --build
 ```
+
+Before starting Docker Compose, place unique generated values in `.env` for
+`POSTGRES_PASSWORD` and `JWT_SECRET_KEY`. Compose refuses to start when either value is empty,
+and the backend rejects known placeholder or short JWT secrets.
 
 Open:
 
@@ -70,6 +75,9 @@ python -m venv .venv
 pip install -e ".[dev]"
 uvicorn app.main:app --reload
 ```
+
+Set `JWT_SECRET_KEY` to a unique value of at least 32 characters before starting the backend.
+The application intentionally fails fast instead of using a predictable fallback secret.
 
 Frontend:
 

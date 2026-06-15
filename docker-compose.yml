@@ -4,7 +4,7 @@ services:
     container_name: finance_analyzer_db
     environment:
       POSTGRES_USER: finance
-      POSTGRES_PASSWORD: finance_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
       POSTGRES_DB: finance_analyzer
     ports:
       - "5432:5432"
@@ -21,8 +21,8 @@ services:
       context: ./backend
     container_name: finance_analyzer_backend
     environment:
-      DATABASE_URL: postgresql+psycopg://finance:finance_password@db:5432/finance_analyzer
-      JWT_SECRET_KEY: change-me-in-production
+      DATABASE_URL: postgresql+psycopg://finance:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@db:5432/finance_analyzer
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:?Set JWT_SECRET_KEY in .env}
       JWT_ALGORITHM: HS256
       ACCESS_TOKEN_EXPIRE_MINUTES: 1440
     ports:
