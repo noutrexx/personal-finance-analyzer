@@ -5,11 +5,12 @@ type Props = {
   value: string;
   note: string;
   icon: LucideIcon;
+  tone?: "default" | "positive" | "warning" | "critical";
 };
 
-export function MetricCard({ title, value, note, icon: Icon }: Props) {
+export function MetricCard({ title, value, note, icon: Icon, tone = "default" }: Props) {
   return (
-    <article className="metric-card">
+    <article className={`metric-card metric-card--${tone}`}>
       <div className="metric-top">
         <span>{title}</span>
         <Icon size={20} />

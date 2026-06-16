@@ -1,9 +1,10 @@
 "use client";
 
-import { RefreshCw } from "lucide-react";
+import { FileUp, RefreshCw } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { AppShell } from "@/components/AppShell";
+import { EmptyState } from "@/components/EmptyState";
 import { TransactionsTable } from "@/components/TransactionsTable";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
 import { fetchTransactions } from "@/lib/api";
@@ -56,7 +57,13 @@ export function TransactionsClient() {
         {transactions.length ? (
           <TransactionsTable items={transactions} />
         ) : (
-          <div className="loading">No transactions yet</div>
+          <EmptyState
+            actionHref="/upload"
+            actionLabel="Upload CSV"
+            description="Import your first bank CSV to populate the ledger and unlock dashboard analytics."
+            icon={FileUp}
+            title="No transactions yet"
+          />
         )}
       </section>
     </AppShell>
