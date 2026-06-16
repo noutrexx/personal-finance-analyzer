@@ -1,8 +1,36 @@
-# Personal Finance Analyzer
+<div align="center">
 
-A full-stack personal finance dashboard for importing bank transactions, classifying spending, calculating financial health, and generating practical budget recommendations.
+<img src="docs/banner.svg" alt="Personal Finance Analyzer" width="100%" />
 
-The first version uses rule-based intelligence by design: it is transparent, testable, and ready for a future ML or LLM-backed classifier without changing the public API.
+<br />
+
+**Import bank transactions, understand spending patterns, and turn raw finance data into clear budget actions.**
+
+<br />
+
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-analytics-0F766E?style=for-the-badge)
+
+</div>
+
+---
+
+## Product Snapshot
+
+Personal Finance Analyzer is a full-stack personal finance dashboard for importing bank transactions,
+classifying spending, calculating financial health, and generating practical budget recommendations.
+
+The first version uses rule-based intelligence by design: it is transparent, testable, and ready for a
+future ML or LLM-backed classifier without changing the public API.
+
+| Focus | What it delivers |
+| --- | --- |
+| **Financial clarity** | Income, expenses, net balance, savings rate, category mix, trends, and top expenses. |
+| **Actionable guidance** | A readable 0-100 health score plus rule-based recommendations. |
+| **Secure defaults** | User-scoped data, JWT auth, and fail-fast production secret configuration. |
 
 ## Features
 
